@@ -132,6 +132,6 @@ with open('curves_8_12Hz_rand.pkl', 'wb') as f:
                  'hilbert': corrs_hilbert, 'delays': delays, 'min_phase_delays': min_phase_delays,
                  'corrs_min_phase': corrs_min_phase}, f)
 
-plt.legend(['FIR+Abs+Smooth', 'cFIR(fLS)+Abs', 'cFIR(fWLS)', 'cFIR(tLS)', 'wFTT(Hilbert)', 'Min-Phase'])
+plt.legend(['FIR', 'F-cFIR(fLS)', 'WF-cFIR', 'T-cFIR', 'FTT-Hilbert', 'Min.phase-FIR'])
 plt.show()
 
