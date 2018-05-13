@@ -19,6 +19,14 @@ def band_hilbert(x, fs, band, N=None, axis=-1):
     x = fftpack.ifft(Xf, axis=axis)
     return 2*x
 
+def band_hilbert2(x, fs, band, N, axis=-1):
+    x = np.asarray(x)
+    lenx = x.shape[0]
+    Xf = fftpack.fft(x, N, axis=axis)
+    w = fftpack.fftfreq(N, d=1. / fs)
+    Xf[(w < band[0]) | (w > band[1])] = 0
+    x = fftpack.ifft(Xf, axis=axis)
+    return 2*x[:lenx]
 
 def get_ideal_H(n_fft, fs, band, delay=0):
     w = np.arange(n_fft)
