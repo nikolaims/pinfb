@@ -11,6 +11,11 @@ def cLS(X, Y, lambda_=0):
     b = np.dot(np.dot(np.linalg.inv(np.dot(X.T, X.conj())+reg), X.T.conj()), Y)
     return b
 
+def ridge(X, Y, lambda_=0):
+    reg = lambda_ * np.eye(X.shape[1])
+    b = np.linalg.solve(X.T.dot(X) + reg, (X.T).dot(Y))
+    return b
+
 def band_hilbert(x, fs, band, N=None, axis=-1):
     x = np.asarray(x)
     Xf = fftpack.fft(x, N, axis=axis)
