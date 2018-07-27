@@ -1,10 +1,12 @@
 from data.loaders import load_alpha_delay_subjects
 from models import SWAnalyticFilter2, RLS
 import pylab as plt
-from helpers import band_hilbert, get_ideal_H, cLS, get_XY, band_hilbert2
+from helpers import band_hilbert, get_ideal_H, get_XY, band_hilbert2, ridge
 import numpy as np
 from scipy.signal import firwin, lfilter, filtfilt, stft, minimum_phase
 import pickle
+
+cLS = ridge
 
 
 x = load_alpha_delay_subjects()

@@ -13,7 +13,7 @@ def cLS(X, Y, lambda_=0):
 
 def ridge(X, Y, lambda_=0):
     reg = lambda_ * np.eye(X.shape[1])
-    b = np.linalg.solve(X.T.dot(X) + reg, (X.T).dot(Y))
+    b = np.linalg.solve(X.T.dot(X.conj()) + reg, (X.T.conj()).dot(Y))
     return b
 
 def band_hilbert(x, fs, band, N=None, axis=-1):

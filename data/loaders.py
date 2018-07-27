@@ -18,7 +18,8 @@ def generate_data(fs, n_samples, x_type='rand'):
     return x
 
 def load_alpha_delay_subjects(subj=1):
-    df = pd.read_pickle('/home/nikolai/_Work/alpha_delayed_nfb/s{}-fb.pkl'.format(subj))
+
+    df = pd.read_pickle('/home/kolai/Data/pred_eeg/s{}-fb.pkl'.format(subj))
     fb_types = ['FB0', 'FB500', 'FB1000', 'FBMock']
     x =  df.loc[df.block_name.isin(fb_types), 'P4'].as_matrix()
     mask = np.where(x>np.std(x)*7)[0]
